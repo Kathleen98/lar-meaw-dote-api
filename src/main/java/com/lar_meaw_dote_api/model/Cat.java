@@ -15,9 +15,10 @@ public class Cat {
     private String color;
     private Boolean altered;
 
-    protected Cat(){}
+    protected Cat() {
+    }
 
-    public Cat(String name, Integer age, String color, Boolean altered){
+    public Cat(String name, Integer age, String color, Boolean altered) {
         this.name = name;
         this.age = age;
         this.color = color;
@@ -25,14 +26,45 @@ public class Cat {
     }
 
     @Override
-    public String toString(){
-        return String.format("Cat[id=%d, name='%s', age='%d', color='%s', altered='%b']", id, name, age, color, altered );
+    public String toString() {
+        return String.format("Cat[id=%d, name='%s', age='%d', color='%s', altered='%b']", id, name, age, color, altered);
     }
 
 
-    public Long getId(){return id;}
-    public String getName(){return name;}
-    public Integer getAge(){return age;}
-    public String getColor(){return color;}
-    public Boolean getAltered(){return altered;}
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public Boolean getAltered() {
+        return altered;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setAltered(Boolean altered) {
+        this.altered = altered;
+    }
+
 }
