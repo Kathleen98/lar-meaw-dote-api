@@ -11,12 +11,12 @@ public class DataSeeder implements CommandLineRunner {
 
     private final CatRepository catRepository;
 
-    public DataSeeder(CatRepository catRepository){
+    public DataSeeder(CatRepository catRepository) {
         this.catRepository = catRepository;
     }
 
     @Override
-    public void run(String... args){
+    public void run(String... args) {
         catRepository.save(new Cat("Bolota", 6, "Preto", true));
         catRepository.save(new Cat("Pipoca", 6, "Preto", true));
     }

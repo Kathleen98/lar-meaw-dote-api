@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 
-public record CreateCatRequest (
+public record CreateCatRequest(
 
         @NotBlank(message = "Preencha o nome")
         String name,
@@ -17,4 +17,5 @@ public record CreateCatRequest (
 
         @NotNull
         Boolean altered
-){}
+) {
+}
