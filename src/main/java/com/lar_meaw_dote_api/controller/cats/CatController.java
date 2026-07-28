@@ -17,33 +17,34 @@ public class CatController {
 
     private final CatService catService;
 
-    public CatController(CatService catService){
+    public CatController(CatService catService) {
         this.catService = catService;
     }
 
     @GetMapping
-    public List<Cat> listCats(){
+    public List<Cat> listCats() {
         return catService.listCats();
     }
 
     @PostMapping
-    public ResponseEntity<Cat> create(@Valid @RequestBody CreateCatRequest request){
+    public ResponseEntity<Cat> create(@Valid @RequestBody CreateCatRequest request) {
         Cat saved = catService.create(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @GetMapping("/{id}")
-    public Optional<Cat> findCat(@PathVariable Long id){
+    public Optional<Cat> findCat(@PathVariable Long id) {
         return catService.findCat(id);
     }
 
     @PutMapping("/{id}")
-    public Cat updatedCat(@PathVariable Long id, @Valid @RequestBody CreateCatRequest request){
+    public Cat updatedCat(@PathVariable Long id, @Valid @RequestBody CreateCatRequest request) {
         return catService.updatedCat(id, request);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCat(@PathVariable Long id){
-        return catService.deleteCat(id);
+    public ResponseEntity<Void> deleteCat(@PathVariable Long id) {
+        catService.deleteCat(id);
+        return ResponseEntity.noContent().build();
     }
 }

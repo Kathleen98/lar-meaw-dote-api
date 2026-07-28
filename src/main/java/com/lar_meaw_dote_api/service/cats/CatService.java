@@ -14,24 +14,24 @@ public class CatService {
 
     private final CatRepository catRepository;
 
-    public CatService(CatRepository catRepository){
+    public CatService(CatRepository catRepository) {
         this.catRepository = catRepository;
     }
 
-    public List<Cat> listCats(){
+    public List<Cat> listCats() {
         return catRepository.findAll();
     }
 
-    public Cat create(CreateCatRequest request){
+    public Cat create(CreateCatRequest request) {
         Cat cat = new Cat(request.name(), request.age(), request.color(), request.altered());
         return catRepository.save(cat);
     }
 
-    public Optional<Cat> findCat(Long id){
+    public Optional<Cat> findCat(Long id) {
         return catRepository.findById(id);
     }
 
-    public Cat updatedCat(Long id, CreateCatRequest request){
+    public Cat updatedCat(Long id, CreateCatRequest request) {
         Cat cat = catRepository.findById(id).orElseThrow();
         cat.setName(request.name());
         cat.setAge(request.age());
@@ -42,9 +42,7 @@ public class CatService {
 
     }
 
-    public ResponseEntity<Void> deleteCat(Long id){
-         catRepository.deleteById(id);
-
-         return ResponseEntity.noContent().build();
+    public void deleteCat(Long id) {
+        catRepository.deleteById(id);
     }
 }
